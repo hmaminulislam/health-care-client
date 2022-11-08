@@ -1,13 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
+    const { googleSignIn, loginUser } = useContext(AuthContext);
+
+    //submit button handle
     const submitHandle = (event) => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+
+        //submit login button handle
+        loginUser(email, password)
+        .then(result => {
+            toast.success('Login successfull')
+            form.reset()
+            console.log(result.user)
+        })
+        .catch(error => {
+            toast.error('Login not successfull')
+            console.log(error)
+        })
+    }
+
+    //google login button handle
+    const googleBtnHandle = () => {
+        googleSignIn()
+        .then(result => {
+            toast.success('Login successfull')
+            console.log(result.user)
+        })
+        .catch(error => console.log(error))
     }
   return (
     <div className="w-full max-w-md mx-auto p-4 rounded-md shadow-2xl sm:p-8 bg-gray-50 text-gray-800">
@@ -17,7 +43,7 @@ const Login = () => {
         <Link to='/signup' className="focus:underline hover:underline text-sky-500">Sign up here</Link>
       </p>
       <div className="my-6 space-y-4">
-        <button
+        <button onClick={googleBtnHandle}
           aria-label="Login with Google"
           type="button"
           className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md border-gray-600 outline-none"

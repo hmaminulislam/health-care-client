@@ -1,10 +1,29 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineMenu } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Header = () => {
+
     const [isOpen, setIsOpen] = useState(false);
+    const { user, loader, logOut } = useContext(AuthContext);
+
+    //loading
+    if(loader) {
+      return <div>Loading...</div>
+    }
+
+    //logOut button handle
+    const logOutBtnHandle = () => {
+      logOut()
+      .then(() => {
+        toast.success('Log out successfull')
+      })
+      .catch(error => console.log(error))
+    }
+
     const menuItem = (
       <>
         <li className="flex">
@@ -43,7 +62,40 @@ const Header = () => {
           <Link className="flex items-center p-2 text-2xl font-bold">
             Helth Care
           </Link>
-          <ul className="items-stretch hidden space-x-3 md:flex">{menuItem}</ul>
+          <ul className="items-stretch hidden space-x-7 md:flex">{menuItem}</ul>
+          <div className="hidden md:block">
+            {user?.uid ? (
+              <>
+                {user?.photoURL ? (
+                  <img
+                    className="w-12 h-12 rounded-full mb-2"
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    className="w-12 h-12 rounded-full mb-2"
+                    src={
+                      "https://st2.depositphotos.com/1006318/5909/v/600/depositphotos_59095205-stock-illustration-businessman-profile-icon.jpg"
+                    }
+                    alt=""
+                  />
+                )}
+                <button
+                  onClick={logOutBtnHandle}
+                  className="text-red-500 font-semibold"
+                >
+                  Log out
+                </button>
+              </>
+            ) : (
+              <>
+                <button className="bg-emerald-500 py-3 px-8 rounded text-white font-semibold mt-2">
+                  <Link to="/login">Login</Link>
+                </button>
+              </>
+            )}
+          </div>
           <button className="flex justify-end p-4 md:hidden">
             {isOpen ? (
               <GrClose
@@ -71,25 +123,44 @@ const Header = () => {
                   </ul>
                 </div>
               </div>
-              <div className="flex items-center p-2 mt-12 space-x-4 justify-self-end">
-                <img
-                  src="https://source.unsplash.com/100x100/?portrait"
-                  alt=""
-                  className="w-12 h-12 rounded-lg dark:bg-gray-500"
-                />
-                <div>
-                  <h2 className="text-lg font-semibold">Leroy Jenkins</h2>
-                  <span className="flex items-center space-x-1">
-                    <Link
-                      rel="noopener noreferrer"
-                      href="#"
-                      className="text-xs hover:underline dark:text-gray-400"
-                    >
-                      View profile
-                    </Link>
-                  </span>
-                </div>
-              </div>
+              {user?.uid ? (
+                <>
+                  <div className="flex items-center p-2 mt-2 space-x-4 justify-self-end">
+                    {user?.photoURL ? (
+                      <img
+                        src={user?.photoURL}
+                        alt=""
+                        className="w-12 h-12 rounded-lg dark:bg-gray-500"
+                      />
+                    ) : (
+                      <img
+                        src={
+                          "https://st2.depositphotos.com/1006318/5909/v/600/depositphotos_59095205-stock-illustration-businessman-profile-icon.jpg"
+                        }
+                        alt=""
+                        className="w-12 h-12 rounded-lg dark:bg-gray-500"
+                      />
+                    )}
+                    <div>
+                      <h2 className="text-lg font-semibold">
+                        {user?.displayName}
+                      </h2>
+                    </div>
+                  </div>
+                  <button
+                    onClick={logOutBtnHandle}
+                    className="bg-red-500 py-2 rounded w-20 mt-5"
+                  >
+                    Log out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="">
+                    Login
+                  </Link>
+                </>
+              )}
             </div>
           }
         </div>
