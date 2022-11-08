@@ -8,12 +8,12 @@ const Header = () => {
     const menuItem = (
       <>
         <li className="flex">
-          <Link className="flex items-center dark:border-transparent">
+          <Link to='/' className="flex items-center dark:border-transparent">
             Home
           </Link>
         </li>
         <li className="flex">
-          <Link className="flex items-center dark:border-transparent">
+          <Link to='/services' className="flex items-center dark:border-transparent">
             Services
           </Link>
         </li>
@@ -31,8 +31,8 @@ const Header = () => {
     );
     const mobileMenuItem = (
       <>
-        <li><Link><span>Home</span></Link></li>
-        <li><Link><span>Services</span></Link></li>
+        <li><Link to='/'><span>Home</span></Link></li>
+        <li><Link to='/services'><span>Services</span></Link></li>
         <li><Link><span>My Reviews</span></Link></li>
         <li><Link><span>Blog</span></Link></li>
       </>
