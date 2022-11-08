@@ -13,7 +13,7 @@ const Services = () => {
             }
           </div>
         <div className='text-center'>
-          <button className="border border-gray-300 bg-violet-500 py-3 px-5">
+          <button className="border border-gray-300 bg-violet-500 py-3 px-5 font-semibold">
             View All
           </button>
         </div>
