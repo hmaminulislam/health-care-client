@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
     const { googleSignIn, loginUser } = useContext(AuthContext);
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     //submit button handle
     const submitHandle = (event) => {
@@ -18,6 +21,7 @@ const Login = () => {
         .then(result => {
             toast.success('Login successfull')
             form.reset()
+            navigate(from, { replace: true });
             console.log(result.user)
         })
         .catch(error => {
@@ -31,9 +35,13 @@ const Login = () => {
         googleSignIn()
         .then(result => {
             toast.success('Login successfull')
+            navigate(from, { replace: true });
             console.log(result.user)
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          toast.error('Login not successfull')
+          console.log(error);
+        })
     }
   return (
     <div className="w-full max-w-md mx-auto p-4 rounded-md shadow-2xl sm:p-8 bg-gray-50 text-gray-800">
@@ -75,6 +83,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="email"
+              required
               className="w-full px-3 py-2 border rounded-md bg-gray-50 text-gray-800 outline-none border-emerald-600"
             />
           </div>
@@ -88,6 +97,7 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="*****"
+              required
               className="w-full px-3 py-2 border rounded-md bg-gray-50 text-gray-800 border-emerald-600 outline-none"
             />
           </div>

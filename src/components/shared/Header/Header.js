@@ -37,7 +37,7 @@ const Header = () => {
           </Link>
         </li>
         <li className="flex">
-          <Link className="flex items-center dark:border-transparent">
+          <Link to='/my-reviews' className="flex items-center dark:border-transparent">
             My Reviews
           </Link>
         </li>
@@ -50,10 +50,26 @@ const Header = () => {
     );
     const mobileMenuItem = (
       <>
-        <li><Link to='/'><span>Home</span></Link></li>
-        <li><Link to='/services'><span>Services</span></Link></li>
-        <li><Link><span>My Reviews</span></Link></li>
-        <li><Link><span>Blog</span></Link></li>
+        <li>
+          <Link to="/">
+            <span>Home</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/services">
+            <span>Services</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/my-reviews">
+            <span>My Reviews</span>
+          </Link>
+        </li>
+        <li>
+          <Link>
+            <span>Blog</span>
+          </Link>
+        </li>
       </>
     );
     return (

@@ -17,7 +17,7 @@ const SignUp = () => {
         displayName: name
       }
       
-      //create user email and password
+      //submit user email and password
       createUser(email, password)
       .then(result => {
         updateUser(userUpdateInfo)
@@ -25,7 +25,10 @@ const SignUp = () => {
         console.log(result.user)
         form.reset()
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        toast.error("Login not successfull");
+        console.log(error);
+      })
     };
 
     //google button handle
@@ -35,7 +38,10 @@ const SignUp = () => {
             toast.success("sign up successfull");
             console.log(result.user)
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          toast.error('Login not successfull')
+          console.log(error);
+        })
     }
     return (
       <div className="w-full max-w-md mx-auto p-4 rounded-md shadow-2xl sm:p-8 bg-gray-50 text-gray-800">
@@ -78,6 +84,7 @@ const SignUp = () => {
                 type="text"
                 name="name"
                 placeholder="name"
+                required
                 className="w-full px-3 py-2 border rounded-md bg-gray-50 text-gray-800 outline-none border-emerald-600"
               />
             </div>
@@ -87,6 +94,7 @@ const SignUp = () => {
                 type="email"
                 name="email"
                 placeholder="email"
+                required
                 className="w-full px-3 py-2 border rounded-md bg-gray-50 text-gray-800 outline-none border-emerald-600"
               />
             </div>
@@ -98,6 +106,7 @@ const SignUp = () => {
                 type="password"
                 name="password"
                 placeholder="*****"
+                required
                 className="w-full px-3 py-2 border rounded-md bg-gray-50 text-gray-800 border-emerald-600 outline-none"
               />
             </div>
