@@ -5,6 +5,7 @@ import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Home from "../components/Home/Home/Home";
 import Login from "../components/Login/Login";
 import MyReviews from "../components/MyReviews/MyReviews/MyReviews";
+import ReviewEdit from "../components/MyReviews/ReviewEdit/ReviewEdit";
 import ServicesPage from "../components/ServicesPage/ServicesPage";
 import ServiceDetails from "../components/shared/ServiceDetails/ServiceDetails";
 import SignUp from "../components/SignUp/SignUp";
@@ -64,6 +65,15 @@ const router = createBrowserRouter([
             <Blog></Blog>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/edit-review/:id",
+        element: (
+          <PrivateRoutes>
+            <ReviewEdit></ReviewEdit>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:5000/edit-review-get/${params.id}`),
       },
     ],
   },

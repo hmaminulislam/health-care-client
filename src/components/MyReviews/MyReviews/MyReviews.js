@@ -22,12 +22,12 @@ const MyReviews = () => {
         <div className="container w-full p-2 mx-auto sm:p-4 text-gray-800">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-500">
+              <thead className="bg-amber-500">
                 <tr className="text-white">
-                  <th className="p-3">Photo</th>
-                  <th className="p-3">Name</th>
-                  <th className="p-3">Review</th>
-                  <th className="p-3">Action</th>
+                  <th className="px-3 py-6">Photo</th>
+                  <th className="px-3 py-6">Name</th>
+                  <th className="px-3 py-6">Review</th>
+                  <th className="px-3 py-6">Action</th>
                 </tr>
               </thead>
               <tbody>
