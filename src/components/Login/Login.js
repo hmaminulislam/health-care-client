@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import { jwtApi } from "../JwtApi/JwtApi";
 
 const Login = () => {
     const { googleSignIn, loginUser } = useContext(AuthContext);
-    let navigate = useNavigate();
-    let location = useLocation();
+    const navigate = useNavigate();
+    const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
     //submit button handle
@@ -19,10 +20,17 @@ const Login = () => {
         //submit login button handle
         loginUser(email, password)
         .then(result => {
-            toast.success('Login successfull')
-            form.reset()
-            navigate(from, { replace: true });
-            console.log(result.user)
+
+          const currentUser = {
+            email: result.user?.email,
+          };
+
+          //jwt api
+          jwtApi(currentUser, navigate, from);
+
+          toast.success("Login successfull");
+          form.reset();
+          console.log(result.user);
         })
         .catch(error => {
             toast.error('Login not successfull')
@@ -34,6 +42,13 @@ const Login = () => {
     const googleBtnHandle = () => {
         googleSignIn()
         .then(result => {
+          const currentUser = {
+            email: result.user?.email,
+          };
+
+          //jwt api
+          jwtApi(currentUser, navigate, from);
+
             toast.success('Login successfull')
             navigate(from, { replace: true });
             console.log(result.user)

@@ -37,6 +37,7 @@ const AuthProvider = ({children}) => {
     
     //user logout
     const logOut = () => {
+        localStorage.removeItem('healthCare-token')
         setLoader(false)
         return signOut(auth)
     }

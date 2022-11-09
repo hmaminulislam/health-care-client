@@ -35,7 +35,7 @@ const ServiceDetails = () => {
           {reviews.map((review) => (
             <Review key={review._id} review={review}></Review>
           ))}
-          <ReviewForm id={service._id} setRefresh={setRefresh}></ReviewForm>
+          <ReviewForm service={service} setRefresh={setRefresh} refresh={refresh}></ReviewForm>
         </div>
       </div>
       <div>

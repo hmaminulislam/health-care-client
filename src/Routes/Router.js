@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Home from "../components/Home/Home/Home";
 import Login from "../components/Login/Login";
-import MyReviews from "../components/MyReviews/MyReviews";
+import MyReviews from "../components/MyReviews/MyReviews/MyReviews";
 import ServicesPage from "../components/ServicesPage/ServicesPage";
 import ServiceDetails from "../components/shared/ServiceDetails/ServiceDetails";
 import SignUp from "../components/SignUp/SignUp";
@@ -51,4 +51,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-export default router
+export default router;

@@ -3,10 +3,10 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 
-const ReviewForm = ({ id, setRefresh }) => {
+const ReviewForm = ({ service, setRefresh, refresh }) => {
   const { user, loader } = useContext(AuthContext);
   const loginUser = user?.uid;
-
+ 
   if (loader) {
     return <div>Loading...</div>;
   }
@@ -23,7 +23,9 @@ const ReviewForm = ({ id, setRefresh }) => {
       review,
       userName: user?.displayName,
       email: user?.email,
-      serviceId: id,
+      serviceId: service?._id,
+      serviceImg: service?.img,
+      serviceName: service?.name
     };
     //review post api
     fetch(`http://localhost:5000/add-review`, {
@@ -37,7 +39,7 @@ const ReviewForm = ({ id, setRefresh }) => {
       .then((data) => {
         if (data.acknowledged) {
           toast.success("Your review added");
-          setRefresh(!false)
+          setRefresh(!refresh)
           form.reset();
         }
       });
