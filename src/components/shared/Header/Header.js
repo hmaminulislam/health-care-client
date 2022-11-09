@@ -42,7 +42,12 @@ const Header = () => {
           </Link>
         </li>
         <li className="flex">
-          <Link className="flex items-center dark:border-transparent">
+          <Link to='/add-service' className="flex items-center dark:border-transparent">
+            Add Service
+          </Link>
+        </li>
+        <li className="flex">
+          <Link to='/blog' className="flex items-center dark:border-transparent">
             Blog
           </Link>
         </li>
@@ -66,7 +71,12 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <Link>
+          <Link to="/add-service">
+            <span>Add Service</span>
+          </Link>
+        </li>
+        <li>
+          <Link to='/blog'>
             <span>Blog</span>
           </Link>
         </li>
