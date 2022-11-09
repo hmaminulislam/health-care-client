@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 import TableRow from "../TableRow/TableRow";
 
 const MyReviews = () => {
+  useTitle('My Reviews')
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
