@@ -13,9 +13,9 @@ const Pricing = () => {
               Choose your best plan
             </h2>
           </div>
-          <div className="flex flex-wrap items-stretch -mx-4">
-            <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
-              <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-gray-50">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto w-full">
+            <div className="flex mb-8 sm:px-4 lg:mb-0">
+              <div className="flex w-full flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-gray-50">
                 <div className="space-y-2">
                   <h4 className="text-2xl font-bold">Frist Time</h4>
                   <span className="text-6xl font-bold">Free</span>
@@ -78,8 +78,8 @@ const Pricing = () => {
                 </button>
               </div>
             </div>
-            <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
-              <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-emerald-600 text-gray-50">
+            <div className="flex mb-8 sm:px-4 lg:mb-0">
+              <div className="flex w-full flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-emerald-600 text-gray-50">
                 <div className="space-y-2">
                   <h4 className="text-2xl font-bold">Family</h4>
                   <span className="text-6xl font-bold">
@@ -161,8 +161,8 @@ const Pricing = () => {
                 </Link>
               </div>
             </div>
-            <div className="w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
-              <div className="p-6 space-y-6 rounded shadow sm:p-8 bg-gray-50">
+            <div className="flex mb-8 sm:px-4 lg:mb-0">
+              <div className="w-full p-6 space-y-6 rounded shadow sm:p-8 bg-gray-50">
                 <div className="space-y-2">
                   <h4 className="text-2xl font-bold">Team</h4>
                   <span className="text-6xl font-bold">

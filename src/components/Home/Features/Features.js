@@ -6,7 +6,7 @@ const Features = () => {
     return (
       <div className="px-5 sm:px-10 md:px-20 my-20">
         <h2 className="text-3xl font-semibold mb-8">Features</h2>
-        <div className="grid gap-20 grid-cols-2">
+        <div className="grid gap-20 grid-cols-1 lg:grid-cols-2">
           <div className="flex items-center">
             <span className="mr-5 border-2 border-emerald-700 bg-emerald-600 rounded-full p-5">
               <IoIosCall className="text-3xl text-white"></IoIosCall>
