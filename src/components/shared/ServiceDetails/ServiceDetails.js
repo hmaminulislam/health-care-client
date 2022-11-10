@@ -23,7 +23,7 @@ const ServiceDetails = () => {
   }, [service._id, refresh]);
 
   return (
-    <div className="grid gap-20 grid-cols-3 px-5 sm:px-10 md:px-20 mb-20">
+    <div className="grid gap-20 grid-cols-1 md:grid-cols-3 px-5 sm:px-10 md:px-20 mb-20">
       <div className="col-span-2">
         <img className="w-full max-h-[400px]" src={service?.img} alt="" />
         <h2 className="text-2xl font-semibold py-4">{service?.name}</h2>
@@ -63,7 +63,6 @@ const ServiceDetails = () => {
             </Link>
           );
         })}
-        <div className="text-3xl">sidebar</div>
       </div>
     </div>
   );

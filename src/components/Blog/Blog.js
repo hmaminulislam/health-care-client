@@ -11,7 +11,7 @@ const Blog = () => {
           </h2>
           <div className="space-y-4 mt-10">
             <details className="w-full border rounded-lg">
-              <summary className="cursor-pointer px-4 py-6 focus:outline-none focus-visible:ring-emerald-600">
+              <summary className="cursor-pointer px-4 py-6 focus:outline-none focus-visible:ring-emerald-600 text-sky-600">
                 Difference between SQL and NoSQL?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
@@ -23,7 +23,7 @@ const Blog = () => {
               </p>
             </details>
             <details className="w-full border rounded-lg">
-              <summary className="cursor-pointer px-4 py-6 focus:outline-none focus-visible:ring-emerald-600">
+              <summary className="cursor-pointer px-4 py-6 focus:outline-none focus-visible:ring-emerald-600 text-sky-600">
                 What is JWT, and how does it work?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
@@ -38,7 +38,7 @@ const Blog = () => {
               </p>
             </details>
             <details className="w-full border rounded-lg">
-              <summary className="px-4 py-6 focus:outline-none focus-visible:ring-emerald-600 cursor-pointer">
+              <summary className="px-4 py-6 focus:outline-none focus-visible:ring-emerald-600 cursor-pointer text-sky-600">
                 What is the difference between javascript and NodeJS?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
@@ -56,7 +56,7 @@ const Blog = () => {
               </p>
             </details>
             <details className="w-full border rounded-lg">
-              <summary className="px-4 py-6 focus:outline-none focus-visible:ring-emerald-600 cursor-pointer">
+              <summary className="px-4 py-6 focus:outline-none focus-visible:ring-emerald-600 cursor-pointer text-sky-600">
                 How does NodeJS handle multiple requests at the same time?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">

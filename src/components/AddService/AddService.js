@@ -39,9 +39,9 @@ const AddService = () => {
     <section className="p-6 text-gray-800">
       <form
         onSubmit={submitHandle}
-        className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow bg-gray-50"
+        className="container w-full max-w-xl p-2 sm:p-8 mx-auto space-y-6 rounded-md shadow bg-gray-50"
       >
-        <h2 className="w-full text-3xl font-bold leading-tight">
+        <h2 className="w-full text-3xl font-bold leading-tight text-emerald-600">
           Add Your Service
         </h2>
         <div>

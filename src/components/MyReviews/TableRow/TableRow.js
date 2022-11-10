@@ -28,24 +28,24 @@ const TableRow = ({ review }) => {
   };
   return (
     <tr className=" bg-gray-50 text-center">
-      <td className="px-3 py-5 border border-gray-300 ">
+      <td className="px-0 sm:px-3 py-1 sm:py-5 border border-gray-300 ">
         <img
-          className="w-14 h-14 mx-auto rounded-full"
+          className="w-8 h-8 sm:w-14 sm:h-14 mx-auto rounded-full"
           src={review?.serviceImg}
           alt=""
         />
       </td>
-      <td className="p-3 border border-gray-300">
-        <p>{review?.serviceName}</p>
+      <td className="px-1 py-1 sm:p-3 border border-gray-300">
+        <p className="text-sm">{review?.serviceName}</p>
       </td>
-      <td className="p-3 border border-gray-300">
-        <p>{review?.review}</p>
+      <td className="px-1 py-1 sm:p-3 border border-gray-300">
+        <p className="text-sm">{review?.review}</p>
       </td>
-      <td className="p-3 border border-gray-300">
-        <span className="">
+      <td className="px-1 py-1 sm:p-3 border border-gray-300">
+        <span>
           <select
             onChange={(e) => changeHandle(e, review._id)}
-            className="p-2 border border-gray-200 text-sky-600 cursor-pointer"
+            className="p-0 text-sm sm:p-2 border border-gray-200 text-sky-600 cursor-pointer"
           >
             <option className="cursor-pointer">Action</option>
             <option value="edit" className="cursor-pointer">
