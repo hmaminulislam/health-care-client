@@ -101,8 +101,8 @@ const Header = () => {
     return (
       <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
         <div className="container flex justify-between h-16 mx-auto">
-          <Link className="flex items-center p-2 text-3xl font-bold text-emerald-600">
-            Helth Care
+          <Link to='/' className="flex items-center p-2 text-3xl font-bold text-emerald-600">
+            Health Care
           </Link>
           <ul className="items-stretch hidden space-x-7 md:flex">{menuItem}</ul>
           <div className="hidden md:block">
