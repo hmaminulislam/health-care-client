@@ -1,6 +1,5 @@
 export const jwtApi = (currentUser, navigate, from) => {
-
-  fetch("http://localhost:5000/jwt", {
+  fetch("https://health-care-server.vercel.app/jwt", {
     method: "POST",
     headers: {
       "content-type": "application/json",

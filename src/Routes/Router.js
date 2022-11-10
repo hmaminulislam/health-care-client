@@ -21,18 +21,19 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/limit-services"),
+        loader: () =>
+          fetch("https://health-care-server.vercel.app/limit-services"),
       },
       {
         path: "/service/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/service/${params.id}`),
+          fetch(`https://health-care-server.vercel.app/service/${params.id}`),
       },
       {
         path: "/services",
         element: <ServicesPage></ServicesPage>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://health-care-server.vercel.app/services"),
       },
       {
         path: "/login",
@@ -73,7 +74,10 @@ const router = createBrowserRouter([
             <ReviewEdit></ReviewEdit>
           </PrivateRoutes>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/edit-review-get/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://health-care-server.vercel.app/edit-review-get/${params.id}`
+          ),
       },
     ],
   },

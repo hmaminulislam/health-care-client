@@ -7,17 +7,17 @@ const ServiceDetails = () => {
   const service = useLoaderData();
   const [services, setServices] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [refresh, setRefresh] = useState(false)
+  const [refresh, setRefresh] = useState(false);
 
   //fetch all services
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://health-care-server.vercel.app/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${service._id}`)
+    fetch(`https://health-care-server.vercel.app/reviews/${service._id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [service._id, refresh]);
@@ -35,7 +35,11 @@ const ServiceDetails = () => {
           {reviews.map((review) => (
             <Review key={review._id} review={review}></Review>
           ))}
-          <ReviewForm service={service} setRefresh={setRefresh} refresh={refresh}></ReviewForm>
+          <ReviewForm
+            service={service}
+            setRefresh={setRefresh}
+            refresh={refresh}
+          ></ReviewForm>
         </div>
       </div>
       <div>

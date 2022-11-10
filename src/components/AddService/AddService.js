@@ -20,7 +20,7 @@ const AddService = () => {
       body,
     };
 
-    fetch("http://localhost:5000/add-service", {
+    fetch("https://health-care-server.vercel.app/add-service", {
       method: "POST",
       headers: {
         "content-type": "application/json",

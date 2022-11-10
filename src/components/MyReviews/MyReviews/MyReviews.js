@@ -4,15 +4,18 @@ import useTitle from "../../../hooks/useTitle";
 import TableRow from "../TableRow/TableRow";
 
 const MyReviews = () => {
-  useTitle('My Reviews')
+  useTitle("My Reviews");
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/my-reviews?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("healthCare-token")}`,
-      },
-    })
+    fetch(
+      `https://health-care-server.vercel.app/my-reviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("healthCare-token")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [user.email, reviews]);
@@ -40,7 +43,9 @@ const MyReviews = () => {
         </div>
       ) : (
         <div>
-          <h2 className="text-4xl font-semibold text-center h-screen mt-20">No reviews were added</h2>
+          <h2 className="text-4xl font-semibold text-center h-screen mt-20">
+            No reviews were added
+          </h2>
         </div>
       )}
     </>

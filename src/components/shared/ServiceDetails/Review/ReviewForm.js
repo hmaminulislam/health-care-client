@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 
 const ReviewForm = ({ service, setRefresh, refresh }) => {
   const { user, loader } = useContext(AuthContext);
   const loginUser = user?.uid;
- 
+
   if (loader) {
     return <div>Loading...</div>;
   }
@@ -25,10 +25,10 @@ const ReviewForm = ({ service, setRefresh, refresh }) => {
       email: user?.email,
       serviceId: service?._id,
       serviceImg: service?.img,
-      serviceName: service?.name
+      serviceName: service?.name,
     };
     //review post api
-    fetch(`http://localhost:5000/add-review`, {
+    fetch(`https://health-care-server.vercel.app/add-review`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -39,7 +39,7 @@ const ReviewForm = ({ service, setRefresh, refresh }) => {
       .then((data) => {
         if (data.acknowledged) {
           toast.success("Your review added");
-          setRefresh(!refresh)
+          setRefresh(!refresh);
           form.reset();
         }
       });
