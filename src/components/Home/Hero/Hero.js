@@ -14,13 +14,14 @@ const Hero = () => {
               spirit function as one and addressing all promotes healing.
             </p>
             <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-              <Link to='/add-service' className="px-8 py-3 text-lg font-semibold rounded bg-emerald-600 text-white">
+              <Link
+                to="/add-service"
+                className="px-8 py-3 text-lg font-semibold rounded bg-emerald-600 text-white"
+              >
                 Add Services
               </Link>
-              <Link
-                className="px-8 py-3 text-lg font-semibold border rounded border-emerald-600"
-              >
-                Malesuada
+              <Link to='/my-reviews' className="px-8 py-3 text-lg font-semibold border rounded border-emerald-600">
+                My Reviews
               </Link>
             </div>
           </div>
