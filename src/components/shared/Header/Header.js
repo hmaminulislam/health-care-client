@@ -154,7 +154,9 @@ const Header = () => {
           {
             <div
               className={`flex flex-col h-auto px-3 py-8 w-full bg-gray-900 text-gray-100 absolute ${
-                isOpen ? "left-0 top-24" : "hidden"
+                isOpen
+                  ? "left-0 top-24 ease-out"
+                  : "hidden"
               }`}
             >
               <div className="space-y-3">
