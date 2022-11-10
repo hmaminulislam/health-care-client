@@ -8,12 +8,8 @@ import toast from 'react-hot-toast';
 const Header = () => {
 
     const [isOpen, setIsOpen] = useState(false);
-    const { user, loader, logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
-    //loading
-    if(loader) {
-      return <div>Loading...</div>
-    }
 
     //logOut button handle
     const logOutBtnHandle = () => {
@@ -27,27 +23,43 @@ const Header = () => {
     const menuItem = (
       <>
         <li className="flex">
-          <Link to='/' className="flex items-center dark:border-transparent">
+          <Link to="/" className="flex items-center dark:border-transparent">
             Home
           </Link>
         </li>
         <li className="flex">
-          <Link to='/services' className="flex items-center dark:border-transparent">
+          <Link
+            to="/services"
+            className="flex items-center dark:border-transparent"
+          >
             Services
           </Link>
         </li>
+        {user && (
+          <>
+            <li className="flex">
+              <Link
+                to="/my-reviews"
+                className="flex items-center dark:border-transparent"
+              >
+                My Reviews
+              </Link>
+            </li>
+            <li className="flex">
+              <Link
+                to="/add-service"
+                className="flex items-center dark:border-transparent"
+              >
+                Add Service
+              </Link>
+            </li>
+          </>
+        )}
         <li className="flex">
-          <Link to='/my-reviews' className="flex items-center dark:border-transparent">
-            My Reviews
-          </Link>
-        </li>
-        <li className="flex">
-          <Link to='/add-service' className="flex items-center dark:border-transparent">
-            Add Service
-          </Link>
-        </li>
-        <li className="flex">
-          <Link to='/blog' className="flex items-center dark:border-transparent">
+          <Link
+            to="/blog"
+            className="flex items-center dark:border-transparent"
+          >
             Blog
           </Link>
         </li>
@@ -65,18 +77,22 @@ const Header = () => {
             <span>Services</span>
           </Link>
         </li>
+        {user && (
+          <>
+            <li>
+              <Link to="/my-reviews">
+                <span>My Reviews</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/add-service">
+                <span>Add Service</span>
+              </Link>
+            </li>
+          </>
+        )}
         <li>
-          <Link to="/my-reviews">
-            <span>My Reviews</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/add-service">
-            <span>Add Service</span>
-          </Link>
-        </li>
-        <li>
-          <Link to='/blog'>
+          <Link to="/blog">
             <span>Blog</span>
           </Link>
         </li>
@@ -137,8 +153,8 @@ const Header = () => {
           </button>
           {
             <div
-              className={`flex flex-col h-full p-3 w-60 bg-gray-900 text-gray-100 absolute ${
-                isOpen ? "left-[-1px] top-0" : "left-[-250px]"
+              className={`flex flex-col h-auto px-3 py-8 w-full bg-gray-900 text-gray-100 absolute ${
+                isOpen ? "left-0 top-24" : "hidden"
               }`}
             >
               <div className="space-y-3">

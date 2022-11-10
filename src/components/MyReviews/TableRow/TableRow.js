@@ -12,18 +12,25 @@ const TableRow = ({ review }) => {
     }
     //Delete review
     if (action === "delete") {
-      fetch("https://health-care-server.vercel.app/delete-review", {
-        method: "DELETE",
-        headers: {
-          id,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            toast.success("Delete successfull");
-          }
-        });
+      const deleteConfirm = window.confirm("Are you sure review delete?")
+      if(deleteConfirm) {
+        fetch("https://health-care-server.vercel.app/delete-review", {
+          method: "DELETE",
+          headers: {
+            id,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.acknowledged) {
+              toast.success("Delete successfull");
+            }
+          });
+      }
+      else{
+        return
+      }
+      
     }
   };
   return (
