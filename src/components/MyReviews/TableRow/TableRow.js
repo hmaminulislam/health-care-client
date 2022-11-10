@@ -12,8 +12,8 @@ const TableRow = ({ review }) => {
     }
     //Delete review
     if (action === "delete") {
-      const deleteConfirm = window.confirm("Are you sure review delete?")
-      if(deleteConfirm) {
+      const deleteConfirm = window.confirm("Are you sure review delete?");
+      if (deleteConfirm) {
         fetch("https://health-care-server.vercel.app/delete-review", {
           method: "DELETE",
           headers: {
@@ -26,11 +26,9 @@ const TableRow = ({ review }) => {
               toast.success("Delete successfull");
             }
           });
+      } else {
+        return;
       }
-      else{
-        return
-      }
-      
     }
   };
   return (

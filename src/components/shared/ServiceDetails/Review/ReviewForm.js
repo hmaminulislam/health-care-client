@@ -5,7 +5,7 @@ import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 
 const ReviewForm = ({ service, setRefresh, refresh }) => {
   const { user, loader } = useContext(AuthContext);
-  const location = useLocation()
+  const location = useLocation();
   const loginUser = user?.uid;
 
   if (loader) {

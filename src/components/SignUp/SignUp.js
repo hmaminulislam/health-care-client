@@ -6,7 +6,7 @@ import useTitle from "../../hooks/useTitle";
 import { jwtApi } from "../JwtApi/JwtApi";
 
 const SignUp = () => {
-  useTitle('Sign Up')
+  useTitle("Sign Up");
   const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
